@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CaEntity index{% endblock %}
+
+{% block body %}
+    <h1>CaEntity index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ca_entity in ca_entities %}
+            <tr>
+                <td>{{ ca_entity.id }}</td>
+                <td>{{ ca_entity.name }}</td>
+                <td>{{ ca_entity.Address }}</td>
+                <td>
+                    <a href="{{ path('ca_entity_show', {'id': ca_entity.id}) }}">show</a>
+                    <a href="{{ path('ca_entity_edit', {'id': ca_entity.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ca_entity_new') }}">Create new</a>
+{% endblock %}
