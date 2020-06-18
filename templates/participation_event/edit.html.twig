@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ParticipationEvent{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Evénements</h1>
+
+    <p>→ Modifier l'événement n°{{ participation_event.id }}</p>
+
+    {{ include('participation_event/_form.html.twig', {'button_label': 'Valider'}) }}
+    <br>
+    <a href="{{ path('participation_event_index') }}">&#8592; Retour à la liste</a>
+    <br><br>
+    {{ include('participation_event/_delete_form.html.twig') }}
+{% endblock %}

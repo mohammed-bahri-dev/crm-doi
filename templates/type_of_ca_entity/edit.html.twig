@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeOfCaEntity{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Types d'entités</h1>
+
+    <p>→ Modifier le type d'entité n°{{ type_of_ca_entity.id }}</p>
+    {{ include('type_of_ca_entity/_form.html.twig', {'button_label': 'valider'}) }}
+    <br>
+    <a href="{{ path('type_of_ca_entity_index') }}">&#8592; Retour à la liste</a>
+    <br><br>
+    {{ include('type_of_ca_entity/_delete_form.html.twig') }}
+{% endblock %}

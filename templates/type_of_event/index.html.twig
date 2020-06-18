@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeOfEvent index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Types d'événements</h1>
+    <p>→ La liste des types d'événements </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_of_event in type_of_events %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ type_of_event.id }}</td>
+                <td>{{ type_of_event.name }}</td>
+                <td align="center">
+                    {# <a href="{{ path('type_of_event_show', {'id': type_of_event.id}) }}">show</a> #}
+                    <a href="{{ path('type_of_event_edit', {'id': type_of_event.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('type_of_event_new') }}">+ Créer un nouveau type</a>
+{% endblock %}

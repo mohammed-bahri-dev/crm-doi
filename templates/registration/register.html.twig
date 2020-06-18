@@ -1,11 +1,66 @@
-{# templates/registration/register.html.twig #}
+{% extends 'base.html.twig' %}
 
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Inscription</h1>
+
+<style>
+#user_plainPassword_first{
+    margin-bottom:3px;
+}
+#user_roles, #user_preferredContact, #user_caentity {
+    width:100%;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1">
 {{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.caentity) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
-
-    <button type="submit">Register!</button>
+    <tr>
+        <td>Email </td>
+        <td>{{ form_row(form.email) }}</td>
+    </tr>
+    <tr>
+        <td>Matricule </td>
+        <td>{{ form_row(form.username) }}</td>
+    </tr>
+    <tr>
+        <td>Nom </td>
+        <td>{{ form_row(form.firstname) }}</td>
+    </tr>
+    <tr>
+        <td>Prénom </td>
+        <td>{{ form_row(form.lastname) }}</td>
+    </tr>
+        <tr>
+        <td>Téléphone </td>
+        <td>{{ form_row(form.phone) }}</td>
+    </tr>
+    <tr>
+        <td>Mobile </td>
+        <td>{{ form_row(form.mobile) }}</td>
+    </tr>
+    <tr>
+        <td>Adresse </td>
+        <td>{{ form_row(form.address) }}</td>
+    </tr>
+    <tr>
+        <td>Préference contact &nbsp;</td>
+        <td>{{ form_row(form.preferredContact) }}</td>
+    </tr>
+    <tr>
+        <td>Entité </td>
+        <td>{{ form_row(form.caentity) }}</td>
+    </tr>
+    <tr>
+        <td>Mot de passe</td>
+        <td>{{ form_row(form.plainPassword) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <button class="btn">{{ button_label|default("S'inscrire") }}</button>
+        </td>
+    </tr>
 {{ form_end(form) }}
+</table>
+
+{% endblock %}

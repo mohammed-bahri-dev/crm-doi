@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technology index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Technologies</h1>
+    <p>→ La liste des technologies</p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Famille</th>
+                <th>Expert</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technology in technologies %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ technology.id }}</td>
+                <td>{{ technology.name }}</td>
+                <td>{{ technology.family }}</td>
+                <td>{{ technology.expert.username }}</td>
+                <td align="center">
+                    {# <a href="{{ path('technology_show', {'id': technology.id}) }}">show</a> #}
+                    <a href="{{ path('technology_edit', {'id': technology.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('technology_new') }}">+ Créer une nouvelle technologie</a>
+{% endblock %}

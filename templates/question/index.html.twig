@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Questions</h1>
+    <p>→ La liste des questions </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Question</th>
+                <th>Date</th>
+                <th>Technologie</th>
+                <th>Personne</th>
+                <th>Evénement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ question.id }}</td>
+                <td>{{ question.question }}</td>
+                <td>{{ question.date ? question.date|format_datetime(locale='fr') : '' }}</td>
+                <td>{{ question.technology.name }}</td>
+                <td>{{ question.person.username }}</td>
+                <td>{{ question.event.name }}</td>
+                <td align="center">
+                    {# <a href="{{ path('question_show', {'id': question.id}) }}">show</a> #}
+                    <a href="{{ path('question_edit', {'id': question.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('question_new') }}">+ Créer une nouvelle question</a>
+{% endblock %}

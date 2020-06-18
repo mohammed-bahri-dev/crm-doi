@@ -1,0 +1,66 @@
+<style>
+#user1_plainPassword_first{
+    margin-bottom:3px;
+}
+#user1_roles, #user1_preferredContact, #user1_caentity {
+    width:100%;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1;">
+{{ form_start(form) }}
+    <tr>
+        <td>Email </td>
+        <td>{{ form_row(form.email) }}</td>
+    </tr>
+    <tr>
+        <td>Matricule </td>
+        <td>{{ form_row(form.username) }}</td>
+    </tr>
+    <tr>
+        <td>Nom </td>
+        <td>{{ form_row(form.firstname) }}</td>
+    </tr>
+    <tr>
+        <td>Prénom </td>
+        <td>{{ form_row(form.lastname) }}</td>
+    </tr>
+    <tr>
+        <td>Poste </td>
+        <td>{{ form_row(form.poste) }}</td>
+    </tr>
+    <tr>
+        <td>Rôle </td>
+        <td>{{ form_row(form.roles) }}</td>
+    </tr>
+    <tr>
+        <td>Téléphone </td>
+        <td>{{ form_row(form.phone) }}</td>
+    </tr>
+    <tr>
+        <td>Mobile </td>
+        <td>{{ form_row(form.mobile) }}</td>
+    </tr>
+    <tr>
+        <td>Adresse </td>
+        <td>{{ form_row(form.address) }}</td>
+    </tr>
+    <tr>
+        <td>Préference contact &nbsp;</td>
+        <td>{{ form_row(form.preferredContact) }}</td>
+    </tr>
+    <tr>
+        <td>Entité </td>
+        <td>{{ form_row(form.caentity) }}</td>
+    </tr>
+    <tr>
+        <td>Mot de passe</td>
+        <td>{{ form_row(form.plainPassword) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <br>
+            <button class="btn" style="width:100%;">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
+{{ form_end(form) }}
+</table>

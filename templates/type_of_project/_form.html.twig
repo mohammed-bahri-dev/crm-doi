@@ -1,0 +1,16 @@
+<style>
+#question_person, #question_technology, #question_event {
+    width:100%;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1;">
+{{ form_start(form) }}
+    <tr>
+        <td>Type </td>
+        <td>{{ form_row(form.type) }}</td>
+        <td>
+            <button class="btn">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
+{{ form_end(form) }}
+</table>

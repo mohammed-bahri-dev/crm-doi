@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Projets</h1>
+    <p>→ La liste des projets </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Technologie</th>
+                <th>Type de projet</th>
+                <th>Code</th>
+                <th>Impact</th>
+                <th>Cas d'usage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.technology.name }}</td>
+                <td>{{ project.typeOfProject.type }}</td>
+                <td>{{ project.code }}</td>
+                <td>{{ project.impact }}</td>
+                <td>{{ project.useCase }}</td>
+                <td align="center">
+                    {# <a href="{{ path('project_show', {'id': project.id}) }}">show</a> #}
+                    <a href="{{ path('project_edit', {'id': project.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('project_new') }}">+ Créer un nouveau projet</a>
+{% endblock %}

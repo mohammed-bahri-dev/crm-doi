@@ -3,26 +3,43 @@
 {% block title %}CaEntity index{% endblock %}
 
 {% block body %}
-    <h1>CaEntity index</h1>
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Entités</h1>
+    <p>→ La liste des entités </p>
 
-    <table class="table">
+    <table class="table" style="border:1px dotted black;" width=100%>
         <thead>
-            <tr>
+            <tr bgcolor="#017d8f" style="color:white;">
                 <th>Id</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>actions</th>
+                <th>Entité</th>
+                <th>Adresse</th>
+                <th>Département</th>
+                <th>Type</th>
+                <th>Contact privilégié</th>
+                <th>Contact innovation</th>
+                <th>Contact iBusiness</th>
+                <th>Statut du partenaire</th>
+                <th>Niveau d'interêt</th>
+                <th>Profil innovation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for ca_entity in ca_entities %}
-            <tr>
+            <tr bgcolor="#f1f1f1">
                 <td>{{ ca_entity.id }}</td>
                 <td>{{ ca_entity.name }}</td>
                 <td>{{ ca_entity.Address }}</td>
-                <td>
-                    <a href="{{ path('ca_entity_show', {'id': ca_entity.id}) }}">show</a>
-                    <a href="{{ path('ca_entity_edit', {'id': ca_entity.id}) }}">edit</a>
+                <td>{{ ca_entity.department }}</td>
+                <td>{{ ca_entity.typeOfCaEntity.name }}</td>
+                <td>{{ ca_entity.privilegedContact.username }}</td>
+                <td>{{ ca_entity.innovationContact.username }}</td>
+                <td>{{ ca_entity.iBusinessContact.username }}</td>
+                <td>{{ ca_entity.partnerStatus.name }}</td>
+                <td>{{ ca_entity.interestLevel }}</td>
+                <td>{{ ca_entity.innovationProfile }}</td>
+                <td align="center">
+                    {# <a href="{{ path('ca_entity_show', {'id': ca_entity.id}) }}">show</a> #}
+                    <a href="{{ path('ca_entity_edit', {'id': ca_entity.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +49,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('ca_entity_new') }}">Create new</a>
+    <br>
+    <a href="{{ path('ca_entity_new') }}">+ Créer une nouvelle entité</a>
 {% endblock %}

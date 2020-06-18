@@ -1,4 +1,57 @@
+<style>
+#ca_entity_privilegedContact, #ca_entity_innovationContact, 
+#ca_entity_iBusinessContact, #ca_entity_typeOfCaEntity, 
+#ca_entity_partnerStatus {
+    width:100%;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <tr>
+        <td>Nom </td>
+        <td>{{ form_row(form.name) }}</td>
+    </tr>
+    <tr>
+        <td>Adresse </td>
+        <td>{{ form_row(form.Address) }}</td>
+    </tr>
+    <tr>
+        <td>Département </td>
+        <td>{{ form_row(form.department) }}</td>
+    </tr>
+    <tr>
+        <td>Contact privilégié </td>
+        <td>{{ form_row(form.privilegedContact) }}</td>
+    </tr>
+    <tr>
+        <td>Contact innovation</td>
+        <td>{{ form_row(form.innovationContact) }}</td>
+    </tr>
+    <tr>
+        <td>Contact iBusiness </td>
+        <td>{{ form_row(form.iBusinessContact) }}</td>
+    </tr>
+        <tr>
+        <td>Type </td>
+        <td>{{ form_row(form.typeOfCaEntity) }}</td>
+    </tr>
+    <tr>
+        <td>Statut de partenaire </td>
+        <td>{{ form_row(form.partnerStatus) }}</td>
+    </tr>
+    <tr>
+        <td>Niveau d'interêt </td>
+        <td>{{ form_row(form.interestLevel) }}</td>
+    </tr>
+    <tr>
+        <td>Profile d'innovation </td>
+        <td>{{ form_row(form.innovationProfile) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <br>
+            <button class="btn" style="width:100%;">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
 {{ form_end(form) }}
+</table>

@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit CaEntity{% endblock %}
+{% block title %}Editer Entité{% endblock %}
 
 {% block body %}
-    <h1>Edit CaEntity</h1>
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Entités</h1>
 
-    {{ include('ca_entity/_form.html.twig', {'button_label': 'Update'}) }}
+    <p>→ Modifier de l'entité n°{{ ca_entity.id }}</p>
 
-    <a href="{{ path('ca_entity_index') }}">back to list</a>
-
+    {{ include('ca_entity/_form.html.twig', {'button_label': 'Valider'}) }}
+    <br>
+    <a href="{{ path('ca_entity_index') }}">&#8592; Retour à la liste</a>
+    <br><br>
     {{ include('ca_entity/_delete_form.html.twig') }}
 {% endblock %}

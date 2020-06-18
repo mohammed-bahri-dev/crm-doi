@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeOfProject index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Types de projets</h1>
+    <p>→ La liste des types de projets </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_of_project in type_of_projects %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ type_of_project.id }}</td>
+                <td>{{ type_of_project.type }}</td>
+                <td align="center">
+                    {# <a href="{{ path('type_of_project_show', {'id': type_of_project.id}) }}">show</a> #}
+                    <a href="{{ path('type_of_project_edit', {'id': type_of_project.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('type_of_project_new') }}">+ Créer un nouveau type de projets</a>
+{% endblock %}

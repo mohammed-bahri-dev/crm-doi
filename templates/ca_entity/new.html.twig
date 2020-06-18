@@ -3,9 +3,11 @@
 {% block title %}New CaEntity{% endblock %}
 
 {% block body %}
-    <h1>Create new CaEntity</h1>
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Entités</h1>
+
+    <p>→ Créer une entité</p>
 
     {{ include('ca_entity/_form.html.twig') }}
-
-    <a href="{{ path('ca_entity_index') }}">back to list</a>
+    <br>
+    <a href="{{ path('ca_entity_index') }}">&#8592; Retour à la liste</a>
 {% endblock %}

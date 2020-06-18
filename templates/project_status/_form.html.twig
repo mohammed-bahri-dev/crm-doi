@@ -1,0 +1,11 @@
+<table style="border:1px dotted black; background:#f1f1f1;">
+    {{ form_start(form) }}
+        <tr>
+            <td>Statut </td>
+            <td>{{ form_row(form.status) }}</td>
+            <td>
+                <button class="btn">{{ button_label|default('Ajouter') }}</button>
+            </td>
+        </tr>
+    {{ form_end(form) }}
+</table>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeOfEventProject{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Types d'événements de projets</h1>
+
+    <p>→ Ajouter une type d'événement d'un projet</p>
+
+    {{ include('type_of_event_project/_form.html.twig') }}
+    <br>
+    <a href="{{ path('type_of_event_project_index') }}">&#8592; Retour à la liste</a>
+{% endblock %}

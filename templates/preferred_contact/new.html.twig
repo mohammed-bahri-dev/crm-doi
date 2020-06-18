@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PreferredContact{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Modes de contact</h1>
+
+    <p>→ Créer un mode de contact</p>
+
+    {{ include('preferred_contact/_form.html.twig') }}
+    <br>
+    <a href="{{ path('preferred_contact_index') }}">&#8592; Retour à la liste</a>
+{% endblock %}

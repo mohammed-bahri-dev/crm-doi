@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Question{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Questions</h1>
+
+    <p>→ Ajouter une question</p>
+
+    {{ include('question/_form.html.twig') }}
+    <br>
+    <a href="{{ path('question_index') }}">&#8592; Retour à la liste</a>
+{% endblock %}

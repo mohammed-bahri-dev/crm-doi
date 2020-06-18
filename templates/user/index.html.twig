@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Utilisateurs</h1>
+    <p>→ La liste des utilisateurs </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <!--th>Mot de passe</th-->
+                <th>Poste</th>
+                <th>Rôle</th>
+                <th>Entité</th>
+                <th>Téléphone</th>
+                <th>Mobile</th>
+                <th>Adresse</th>
+                <th>Préférence de contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                {# <td>{{ user.password }}</td> #}
+                <td>{{ user.poste }}</td>
+                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                <td>{{ user.caEntity.name }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.mobile }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.preferredContact.mode }}</td>
+                <td align="center">
+                    {# <a href="{{ path('user_show', {'id': user.id}) }}">show</a> #}
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('user_new') }}">+ Créer un nouvel utilisateur</a>
+{% endblock %}

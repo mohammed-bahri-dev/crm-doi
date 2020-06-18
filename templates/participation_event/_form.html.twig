@@ -1,0 +1,23 @@
+<style>
+#participation_event_event, #participation_event_participant {
+    width:200px;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1;">
+{{ form_start(form) }}
+    <tr>
+        <td>Evénement </td>
+        <td>{{ form_row(form.event) }}</td>
+    </tr>
+    <tr>
+        <td>Participant </td>
+        <td>{{ form_row(form.participant) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <br>
+            <button class="btn" style="width:100%;">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
+{{ form_end(form) }}
+</table>

@@ -1,0 +1,41 @@
+<style>
+#question_person, #question_technology, #question_event {
+    width:215px;
+}
+#question_question{
+        width:210px;
+}
+#event_date {
+    width:205px;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1;">
+{{ form_start(form) }}
+    <tr>
+        <td>Personne </td>
+        <td>{{ form_row(form.person) }}</td>
+    </tr>
+    <tr>
+        <td>Date </td>
+        <td>{{ form_row(form.date) }}</td>
+    </tr>
+    <tr>
+        <td>Technologie </td>
+        <td>{{ form_row(form.technology) }}</td>
+    </tr>
+    <tr>
+        <td>Evénement </td>
+        <td>{{ form_row(form.event) }}</td>
+    </tr>
+    <tr>
+        <td>Question </td>
+        <td>{{ form_row(form.question) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <br>
+            <button class="btn" style="width:100%;">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
+{{ form_end(form) }}
+</table>

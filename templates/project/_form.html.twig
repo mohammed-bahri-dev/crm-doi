@@ -1,0 +1,39 @@
+<style>
+#project_technology, #project_typeOfProject {
+    width:100%;
+}
+</style>
+<table style="border:1px dotted black; background:#f1f1f1">
+{{ form_start(form) }}
+    <tr>
+        <td>Nom </td>
+        <td>{{ form_row(form.name) }}</td>
+    </tr>
+    <tr>
+        <td>Technologie </td>
+        <td>{{ form_row(form.technology) }}</td>
+    </tr>
+    <tr>
+        <td>Type de projet </td>
+        <td>{{ form_row(form.typeOfProject) }}</td>
+    </tr>
+    <tr>
+        <td>Code </td>
+        <td>{{ form_row(form.code) }}</td>
+    </tr>
+    <tr>
+        <td>Impact </td>
+        <td>{{ form_row(form.impact) }}</td>
+    </tr>
+    <tr>
+        <td>Cas d'usage </td>
+        <td>{{ form_row(form.useCase) }}</td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <br>
+            <button class="btn" style="width:100%;">{{ button_label|default('Ajouter') }}</button>
+        </td>
+    </tr>
+{{ form_end(form) }}
+</table>

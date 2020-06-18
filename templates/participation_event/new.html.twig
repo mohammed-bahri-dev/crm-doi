@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ParticipationEvent{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Participations à un événement</h1>
+
+    <p>→ Créer une participation</p>
+
+    {{ include('participation_event/_form.html.twig') }}
+    <br>
+    <a href="{{ path('participation_event_index') }}">&#8592; Retour à la liste</a>
+{% endblock %}

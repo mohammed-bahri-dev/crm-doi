@@ -4,9 +4,74 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <style>
+            body {
+                margin: 0;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                width: 15%;
+                background-color: #f1f1f1;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+            }
+            li a {
+                display: block;
+                color: #000;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+            li a.active {
+                background-color: #017d8f;
+                color: white;
+            }
+            li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+            td, th{
+                padding-left:5px;
+                padding-right:5px;
+            }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <ul>
+            <li><a class="active" href="{{ path('home') }}">Accueil</a></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('app_logout') }}">Déconnection</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Connection</a></li>
+                {# <li><a href="{{ path('user_registration') }}">Inscription</a></li> #}
+            {% endif %}
+            <li style="background-color:lightgray;"><a href="{{ path('user_index') }}">Utilisateurs</a></li>
+            <li><a href="{{ path('preferred_contact_index') }}">Préférences de contact</a></li>
+
+            <li style="background-color:lightgray;"><a href="{{ path('ca_entity_index') }}">Entités</a></li>
+            <li><a href="{{ path('type_of_ca_entity_index') }}">Types d'entités</a></li>
+            <li><a href="{{ path('partner_status_index') }}">Statuts de partenaires</a></li>
+
+            <li style="background-color:lightgray;"><a href="{{ path('project_index') }}">Projets</a></li>
+            <li><a href="{{ path('type_of_project_index') }}">Types de projets</a></li>
+            <li><a href="{{ path('project_status_index') }}">Statuts de projets</a></li>
+
+            <li style="background-color:lightgray;"><a href="{{ path('event_index') }}">Evénements</a></li>
+            <li><a href="{{ path('type_of_event_index') }}">Types d'événements</a></li>
+
+            <li><a href="{{ path('event_project_index') }}">Evénements de projets</a></li>
+            <li><a href="{{ path('participation_event_index') }}">Participations à un événement</a></li>
+            <li><a href="{{ path('type_of_event_project_index') }}">Types d'événements de projets</a></li>
+
+            <li style="background-color:lightgray;"><a href="{{ path('question_index') }}">Questions</a></li>
+            <li><a href="{{ path('technology_index') }}">Téchnologies</a></li>
+            <li><a href="#">Contacter le support</a></li>
+        </ul>
+        <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
     </body>
 </html>

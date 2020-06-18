@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventProject index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Evénements de projets</h1>
+    <p>→ La liste des événements de projets </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Date</th>
+                <th>Personne</th>
+                <th>Statut du projet</th>
+                <th>Type de l'événement du project</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event_project in event_projects %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ event_project.id }}</td>
+                <td>{{ event_project.date ? event_project.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event_project.person.username }}</td>
+                <td>{{ event_project.projectStatus.status }}</td>
+                <td>{{ event_project.typeOfEventProject.action }}</td>
+                <td align="center">
+                    {# <a href="{{ path('event_project_show', {'id': event_project.id}) }}">show</a> #}
+                    <a href="{{ path('event_project_edit', {'id': event_project.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('event_project_new') }}">+ Créer un nouvel événement</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventProject{% endblock %}
+
+{% block body %}
+    <h1>EventProject</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event_project.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ event_project.date ? event_project.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('event_project_index') }}">back to list</a>
+
+    <a href="{{ path('event_project_edit', {'id': event_project.id}) }}">edit</a>
+
+    {{ include('event_project/_delete_form.html.twig') }}
+{% endblock %}

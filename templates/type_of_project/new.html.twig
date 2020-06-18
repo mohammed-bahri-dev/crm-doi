@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeOfProject{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Types de projets</h1>
+
+    <p>→ Ajouter un type de projets</p>
+
+    {{ include('type_of_project/_form.html.twig') }}
+    <br>
+    <a href="{{ path('type_of_project_index') }}">&#8592; Retour à la liste</a>
+{% endblock %}

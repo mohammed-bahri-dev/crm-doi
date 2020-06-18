@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PartnerStatus index{% endblock %}
+
+{% block body %}
+    <h1 style="background-color:#138496;color:white; text-shadow: 0px 0px 2px black;">&nbsp;Statuts de partenaires</h1>
+    <p>→ La liste des statuts de partenaires </p>
+
+    <table class="table" style="border:1px dotted black;" width=100%>
+        <thead>
+            <tr bgcolor="#017d8f" style="color:white;">
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for partner_status in partner_statuses %}
+            <tr bgcolor="#f1f1f1">
+                <td>{{ partner_status.id }}</td>
+                <td>{{ partner_status.name }}</td>
+                <td align="center">
+                    {# <a href="{{ path('partner_status_show', {'id': partner_status.id}) }}">show</a> #}
+                    <a href="{{ path('partner_status_edit', {'id': partner_status.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('partner_status_new') }}">+ Créer un nouveau statut</a>
+{% endblock %}
