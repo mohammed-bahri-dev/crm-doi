@@ -45,8 +45,22 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_ADMIN }
         - { path: ^/caentity, roles: ROLE_ADMIN }
-        - { path: ^/caentity/new, roles: ROLE_ADMIN }
-        - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/project, roles: ROLE_ADMIN }
+        - { path: ^/event, roles: ROLE_ADMIN }
+        - { path: ^/event_project, roles: ROLE_ADMIN }
+        - { path: ^/participation_event, roles: ROLE_ADMIN }
+        - { path: ^/partner_status, roles: ROLE_ADMIN }
+        - { path: ^/caentity, roles: ROLE_ADMIN }
+        - { path: ^/preferred_contact, roles: ROLE_ADMIN }
+        - { path: ^/question, roles: ROLE_ADMIN }
+        - { path: ^/technology, roles: ROLE_ADMIN }
+        - { path: ^/entity_type, roles: ROLE_ADMIN }
+        - { path: ^/type_of_event, roles: ROLE_ADMIN }
+        - { path: ^/type_of_event_project, roles: ROLE_ADMIN }
+        - { path: ^/type_of_project, roles: ROLE_ADMIN }
+
+
 
 
